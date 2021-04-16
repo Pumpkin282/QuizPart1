@@ -3,7 +3,7 @@ user = [['user1','password1'],['user2','password2'],['user3','password3']] #arra
 userEntry = ''
 tries = 3 #user gets 3 tries to enter their username and password 
 foundName = False #flag to determinte whether username/password is found
-
+authenticatedUser = False 
 
 while userEntry == '' and tries > 0:
   userEntry = str(input('please enter your username: '))
@@ -15,6 +15,7 @@ while userEntry == '' and tries > 0:
       
       if passwordEntry == user [item][1]:  #this is pulling up an error 
           print('you are logged in')
+          authenticatedUser = True 
       else:
         print('incorrect password')
         userEntry = ''
@@ -22,26 +23,13 @@ while userEntry == '' and tries > 0:
       print('go away')
       tries -= 1
       userEntry = ''
-        
-          
-      
 
-
-
-
-
-
-import random
-
-from random import *
-
-songs = open('songs','r')
-
-songs_list = songs.read().splitlines()
-
-songs.close()
-
-# print(songs_list)
-
-x = sample(songs_list, 1)
-print (x[0])
+if authenticatedUser == True:
+  import random
+  from random import *
+  songs = open('songs','r')
+  songs_list = songs.read().splitlines()
+  songs.close()
+  # print(songs_list)
+  x = sample(songs_list, 1)
+  print (x[0])
