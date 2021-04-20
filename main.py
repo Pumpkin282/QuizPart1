@@ -2,6 +2,14 @@
 import random
 from random import *
 
+def song():
+  songs = open('songs','r')
+  songs_list = songs.read().splitlines()
+  songs.close()
+  # print(songs_list)
+  song = sample(songs_list, 1)
+  print(song)
+
 user = [['user1','password1'],['user2','password2'],['user3','password3']] #array for the usernames and passwords
 userEntry = ''
 tries = 3 #user gets 3 tries to enter their username and password 
@@ -30,11 +38,4 @@ while userEntry == '' and tries > 0:
     userEntry = ''
 
 if authenticatedUser == True:
-
-  
-  songs = open('songs','r')
-  songs_list = songs.read().splitlines()
-  songs.close()
-  # print(songs_list)
-  x = sample(songs_list, 1)
-  #for word in x:
+  song()
