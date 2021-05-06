@@ -5,7 +5,15 @@ from random import *
 #Constant 
 MENU_VALUES = ['S','A','Q']
 
-def song():
+def gueseS():
+  songs = open('songs','r')
+  songs_list = songs.read().splitlines()
+  songs.close()
+  # print(songs_list)
+  song = sample(songs_list, 1)
+  print(song)
+
+def gueseA():
   songs = open('songs','r')
   songs_list = songs.read().splitlines()
   songs.close()
@@ -27,12 +35,14 @@ def menu():
         return 
       elif value == 'S':
         print('Guese the song: ')
-        song()
+        gueseS()
       elif value == 'A':
         print('Guese the artist')
-        song()
+        gueseA()
       else:
-        
+        print('You shoud not get this')
+    else:
+      print('Input is invalid')
 
 user = [['user1','password1'],['user2','password2'],['user3','password3']] #array for the usernames and passwords
 userEntry = ''
