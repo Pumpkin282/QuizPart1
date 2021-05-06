@@ -2,6 +2,9 @@
 import random
 from random import *
 
+#Constant 
+MENU_VALUES = ['S','A','Q']
+
 def song():
   songs = open('songs','r')
   songs_list = songs.read().splitlines()
@@ -9,6 +12,27 @@ def song():
   # print(songs_list)
   song = sample(songs_list, 1)
   print(song)
+
+def menu():
+  while True:
+    print('''MENU;
+
+    S. guese the song
+    A. guese the artist
+    Q. quit''')
+    value = input('Pelse enter a value; ')
+    if value in MENU_VALUES:
+      if value == 'Q':
+        print('ThankYou for playing')
+        return 
+      elif value == 'S':
+        print('Guese the song: ')
+        song()
+      elif value == 'A':
+        print('Guese the artist')
+        song()
+      else:
+        
 
 user = [['user1','password1'],['user2','password2'],['user3','password3']] #array for the usernames and passwords
 userEntry = ''
@@ -38,4 +62,5 @@ while userEntry == '' and tries > 0:
     userEntry = ''
 
 if authenticatedUser == True:
-  song()
+  menu()
+
